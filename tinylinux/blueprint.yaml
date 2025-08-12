@@ -1,4 +1,7 @@
 formatVersion: 1
+name: tinylinux
+version: 1.0.0
+
 inputs: {}
 resources:
   Cloud_vSphere_Machine_1:

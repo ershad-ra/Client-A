@@ -1,18 +1,16 @@
 formatVersion: 1
-name: tinylinux
-version: 1.0.0
-
+inputs: {}
 resources:
-  net0:
-    type: Cloud.vSphere.Network
-    properties:
-      networkType: existing
-  vm:
+  Cloud_vSphere_Machine_1:
     type: Cloud.vSphere.Machine
     properties:
       image: tinylinux
       flavor: tiny
       networks:
-        - network: ${resource.net0.id}
-          assignment: dhcp
-      dnsDomain: cloudnex.lan
+        - network: ${resource.Cloud_NSX_Network_1.id}
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    properties:
+      networkType: existing
+      constraints:
+        - tag: net:client-a
